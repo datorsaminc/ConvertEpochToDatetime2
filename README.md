@@ -1,4 +1,4 @@
-# ConvertEpochToDatetime2
+# Convert Epoch to Datetime2 for SQL Server 2008+
 SQL Server: Convert Epoch to Datetime2
 
 #Usage
