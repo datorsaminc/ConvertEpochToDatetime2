@@ -15,7 +15,7 @@ select dbo.fnConvertEpochToDatetime2(@epochms, @SQLTimeZone)
 
 #Source Code  
 
-create or function dbo.fnConvertEpochToDatetime2(@epochms varchar(50), @SQLTimezone varchar(2048) = 'UTC' )  
+create or alter function dbo.fnConvertEpochToDatetime2(@epochms varchar(50), @SQLTimezone varchar(2048) = 'UTC' )  
 returns datetime2(3)  
 as  
 begin  
