@@ -10,7 +10,7 @@ declare @epochms varchar(50)
 set @SQLTimezone = 'Central European Standard Time'  
 set @epochms = '1745098816793' --2025-04-19 23:40:16.793  
 
---input is epoch in milliseconds as string  
+--input is epoch in milliseconds as string, UTC  
 select dbo.fnConvertEpochToDatetime2(@epochms, @SQLTimeZone)  
 
 #Source Code  
