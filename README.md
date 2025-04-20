@@ -19,14 +19,14 @@ create or function dbo.fnConvertEpochToDatetime2(@epochms varchar(50), @SQLTimez
 returns datetime2(3)  
 as  
 begin  
-  --NOTE! input @epochms is assumed to be given in milliseconds since 1970-01-01  
-  declare @epoch int  
-  declare @ms int  
-  declare @utcdate datetime2(3)  
-  declare @epochdayone datetime2(3)  
-  set @epochdayone = '1970-01-01 00:00:00.000'  
-  set @ms = convert(int, right(@epochms,3))  
-  set @epoch = convert(int, left(@epochms, len(@epochms)-3))  
-  set @utcdate = dateadd(millisecond, @ms, dateadd(s, @epoch, @epochdayone))  
-  return format(@utcdate at time zone 'UTC' at time zone @SQLTimezone,'yyyy-MM-dd HH:mm:ss.fff')  
+    --NOTE! input @epochms is assumed to be given in milliseconds since 1970-01-01  
+    declare @epoch int  
+    declare @ms int  
+    declare @utcdate datetime2(3)  
+    declare @epochdayone datetime2(3)  
+    set @epochdayone = '1970-01-01 00:00:00.000'  
+    set @ms = convert(int, right(@epochms,3))  
+    set @epoch = convert(int, left(@epochms, len(@epochms)-3))  
+    set @utcdate = dateadd(millisecond, @ms, dateadd(s, @epoch, @epochdayone))  
+    return format(@utcdate at time zone 'UTC' at time zone @SQLTimezone,'yyyy-MM-dd HH:mm:ss.fff')  
 end  
